@@ -1,0 +1,54 @@
+<div class="header_sticky">
+    <div id="header">
+        <div class="header_logo">
+            <a href="/"><img src="/img/Header_Logo_TrenZ.png" alt="logo" class="logo_img"></a>
+        </div>
+        <div class="header_search">
+            <form method="GET" action="./search" >
+                <input class="header_search_input" type="text" name="keyword" placeholder="Tìm kiếm...">
+                <button class="header_search_btn" type="submit"><i style="color:var(--white-color)" class="fas fa-search"></i></button>
+            </form>      
+        </div>
+        <div class="header_hotline">
+            <i class="fa-solid fa-phone-volume"></i>
+            <p class="header_hotline_number">Hotline: 0393524189</p>
+        </div>
+    </div>
+    <!-- NAVBAR SESSION -->
+    <div id="navbar">
+        <ul class="navbar_menu_list">
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/product?page=1">Nam</a></li>
+            <li><a href="/womenProduct">Nữ</a></li>
+            <li><a href="/childrenProduct">Trẻ em</a></li>
+            <li><a href="/about">Về TrenZ</a></li>
+        </ul>
+        <div class="navbar_user">
+            <p class="login_user"><a href="/account" style="margin-right: 10px;"><i class="navbar_btn fas fa-user"></i></a>levankhoa</p>
+            <p class="navbar_login_signup"> 
+                <a class="navbar_login" href="/login">Đăng nhập</a>
+                <a class="navbar_signup" href="/register">Đăng ký</a>
+            </p>
+        </div>
+        <div class="navbar_cart">
+            <a href="/cart/checkout"><i class="navbar_btn fas fa-shopping-cart"></i>
+                <p>{{product.length}}</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+        const header = document.querySelector(".header_sticky");
+        window.addEventListener("scroll", () => {
+            header.classList[window.scrollY > 100 ? "add" : "remove"]("active");
+        });
+        const username = document.querySelector(".login_user");
+        const navbar_login_signup = document.querySelector(".navbar_login_signup");
+        username.style.display = 'none';
+        if(username.textContent != 'undefined' && username.textContent != '  '){
+            console.log(username.innerHTML);
+            username.style.display = 'block';
+            navbar_login_signup.style.display = 'none';
+        }
+</script>

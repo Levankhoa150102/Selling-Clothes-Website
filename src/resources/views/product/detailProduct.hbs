@@ -1,0 +1,279 @@
+<div class="product">
+        <!-- Đường dẫn -->
+        {{!-- <div class="product-link">
+            <ul class="product-link-list">
+                <li class="product-link-list-item">
+                    <a href="" class="product-link-list-item-link">TrenZ</a>
+                    <i class="product-link-icon fa-solid fa-chevron-right"></i>
+                </li>
+                <li class="product-link-list-item">
+                    <a href="" class="product-link-list-item-link">Trẻ em</a>
+                    <i class="product-link-icon fa-solid fa-chevron-right"></i>
+                </li>
+                <li class="product-link-list-item">
+                    <a href="" class="product-link-list-item-link">Áo thun</a>
+                </li>
+            </ul>
+        </div> --}}
+    
+        <!-- Ảnh và thông tin sản phẩm -->
+        <div class="product-info">
+            {{#each id_product}}
+            <div class="product_info_id" style="display: none">{{this.id}}</div>
+            <div class="product-info-image">
+                <img src="{{this.img}}" alt="{{this.name}}" class="product-info-image-img">
+            </div>
+            <div class="product-info-detail">
+                <!-- Tên Sản Phẩm -->
+                <div class="product-info-detail-name">{{this.name}}</div>
+                <!-- Giá tiền -->
+                <div class="product-info-detail-price product-line">{{this.price}}đ</div>
+                <!-- Chọn kích thước -->
+                <div class="product-info-detail-size product-line">
+                    <div class="product-info-detail-title ">Kích thước:</div>
+                    <div class="product-info-detail-size-list">
+                        <a class="product-info-detail-size-list-item" data-name="S">S</a>
+                        <a class="product-info-detail-size-list-item" data-name="M">M</a>
+                        <a class="product-info-detail-size-list-item" data-name="L">L</a>
+                        <a class="product-info-detail-size-list-item" data-name="XL">XL</a>
+                    </div>
+                </div>
+                <!-- Chọn số lượng -->
+                <div class="product-info-detail-quantity product-line">
+                    <div class="product-info-detail-title">Số lượng:</div>
+                    <div class="product-info-detail-quantity-number">
+                        <button class="product-info-detail-quantity-number-minus-button">-</button>
+                        <input type="text" class="product-info-detail-quantity-number-input" value="1">
+                        <button class="product-info-detail-quantity-number-plus-button">+</button>
+                    </div>
+    
+                    <p class="product-info-detail-quantity-avai">
+                        <span>{{this.amount}}</span> 
+                        <span>{{this.size}}</span>
+                        <span class="show_quantity"></span>
+                         sản phẩm có sẵn</p>
+                </div>
+                <!-- Thanh toán -->
+                <div class="product-info-detail-button product-line">
+    
+                    <button class="product-btn product-info-detail-button-add">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        Thêm vào giỏ hàng                     
+                    </button>
+              
+                    <a href="" class="product-btn product-info-detail-button-buy">Mua ngay</a>
+                </div>
+                
+    
+                <!-- Hoàn tiền & Vận chuyển -->
+                <div class="product-info-detail-shipping">
+                    <div class="product-info-detail-shipping-info">
+                        <div class="product-info-detail-content">
+                            <i class="shipping-icon fa-solid fa-truck-fast"></i>
+                            Vận chuyển miễn phí
+                        </div>
+                        <div class="product-info-detail-description">Nhập mã bưu điện để biết về tình trạng giao hàng</div>
+                    </div>
+                    <div class="product-info-detail-refund-info">
+                        <div class="product-info-detail-content">
+                            <i style="margin-left: 3px; margin-right: 4px;" class=" shipping-icon fa-solid fa-bag-shopping"></i>
+                            Chính sách trả hàng
+                        </div>
+                        <div class="product-info-detail-description">Hoàn trả hàng miễn phí trong vòng 30 ngày.
+                            {{!-- <a href="" class="product-info-detail-refund-content-link">Xem chi tiết</a> --}}
+                        </div>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <div class="img-side">
+            <i class="img-side-btn fa-solid fa-chevron-left"></i>
+            <div class="img-side-item">
+               <span>{{this.sub_img}}</span>
+            </div>
+            <i class="img-side-btn fa-solid fa-chevron-right"></i>
+        </div>
+    
+        <!-- Mô tả sản phẩm -->
+        <div class="product-description">
+            <div class="product-description-title">
+                MÔ TẢ SẢN PHẨM
+                <div class="product-description-highlight"></div>
+            </div>
+            <div class="product-description-content">
+                <p class="product-overview">Tổng quan</p>
+                <div class="product-detail">
+                    {{this.description}}
+                </div>
+                <div class="product-overview">Thông tin thêm</div>
+                <p class="product-detail">
+                    1. Xin vui lòng đọc thông tin kích thước trước khi chọn kích thước, cảm ơn bạn. <br>
+                    Đơn vị: cm, 1 inch = 2,54cm; Kích thước của người lớn: S-5XL; Kích thước của trẻ em: 100-160. <br>
+                    2. Hình chỉ hiển thị mẫu, do ánh sáng, môi trường, máy ảnh, các hiệu ứng khác nhau nên hình hơi khác so
+                    với hàng thật <br>
+                    3. Đo lường thủ công sẽ có một sai số 1-3 cm, xin vui lòng hiểu được. <br>
+                    Cảm ơn! <br>
+                    Cảm ơn bạn đã ghé thăm cửa hàng của chúng tôi.
+                </p>
+                
+            </div>
+        </div>
+        {{/each}}
+        <!-- Sản phẩm liên quan -->
+        <div class="Similar-product">
+            <div class="Similar-product-title">
+                SẢN PHẨM LIÊN QUAN
+            </div>
+            <div class="Similar-product-content">
+                <i class="img-side-btn fa-solid fa-chevron-left"></i>
+                {{#each relative_products}}
+                <div class="Similar-product-item">
+                    <a href="/product/{{this.id}}">
+                        <img src="{{this.img}}" alt="{{this.name}}" class="Similar-product-item-image-img">
+                    </a>
+                    <div class="Similar-product-info">
+                        <div class="Similar-product-item-name">
+                            <a href="/product/{{this.id}}" class="Similar-product-item-link">{{this.name}}</a>   
+                        </div>
+                        <div class="Similar-product-item-price">{{this.price}}đ</div>
+                        <div class="Similar-product-item-stock">Còn {{this.amount}} sản phẩm</div>
+                    </div>
+                </div>
+                {{/each}}
+                <i class="img-side-btn fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+        
+    </div>
+<script>
+        //Tương tác với size và số lượng của size tương ứng
+        const sizeElements = document.querySelectorAll('.product-info-detail-size-list-item');
+        const total_amount = document.querySelector('.product-info-detail-quantity-avai span');
+        const amount = document.querySelector('.product-info-detail-quantity-avai span:nth-child(2)');
+        const list_quantity = JSON.parse(amount.innerHTML)
+        var curr_size, curr_quantity;
+        const show_quantity = document.querySelector('.show_quantity');
+
+        amount.classList.add('style');
+        amount.style.display = 'none';
+        
+
+        const plus_btn = document.querySelector('.product-info-detail-quantity-number-plus-button');
+        const minus_btn = document.querySelector('.product-info-detail-quantity-number-minus-button');
+        const input = document.querySelector('.product-info-detail-quantity-number-input');
+        var dataSizeName;
+        sizeElements.forEach(function (element) {
+                //const dataSizeName = element.getAttribute('data-name');
+                dataSizeName = element.getAttribute('data-name');
+                if (list_quantity[dataSizeName] == 0) {
+                    element.classList.add('disabled');
+                }
+                element.addEventListener('click', function () {
+                    sizeElements.forEach(function (e) {
+                        e.classList.remove('active');
+                    });
+                    element.classList.add('active');
+
+                    dataSizeName = element.getAttribute('data-name');
+                    show_quantity.innerHTML = list_quantity[dataSizeName];
+                    input.value = 1;
+
+                    total_amount.classList.add('style');
+                    total_amount.style.display = 'none';
+                    curr_size = dataSizeName;
+                    localStorage.clear();
+                    let basket =[{'size':dataSizeName}];
+                    localStorage.setItem('Order_size',JSON.stringify(basket));
+                });
+            });
+        curr_quantity = 1; // Khởi tạo số lượng măc định là 1
+        input.value = 1;
+
+        //Khi người dùng nhập số lượng input
+        input.oninput = function (e) {
+            input.value = e.target.value;
+            if (parseInt(input.value) >= list_quantity[dataSizeName]) {
+                input.value = list_quantity[dataSizeName];
+            }
+            else if (parseInt(input.value) <= 1) {
+                input.value = 1;
+            }
+        }
+
+        plus_btn.addEventListener('click', function () {
+            if (parseInt(input.value) >= list_quantity[dataSizeName]) {
+                input.value = list_quantity[dataSizeName];
+            }
+            else {
+                input.value = parseInt(input.value) + 1;
+                curr_quantity = input.value;
+            }
+        });
+        minus_btn.addEventListener('click', function () {
+            if (parseInt(input.value) <= 1 && list_quantity[dataSizeName] != 0) {
+                input.value = 1;
+            }
+            else if (parseInt(input.value) <= 1 && list_quantity[dataSizeName] == 0) {
+                input.value = 0;
+            }
+            else {
+                input.value = parseInt(input.value) - 1;
+                curr_quantity = input.value;
+                        
+            }
+        });
+
+    
+      
+        
+        //Tương tác với Side-image
+        const img_urls = document.querySelector('.img-side-item span');
+        img_urls.classList.add('style');
+        img_urls.style.display = 'none';
+
+
+        var sub_imgs = img_urls.textContent.replace(/'/g, '"');
+        var list_imgs = JSON.parse(sub_imgs);
+        
+        const product_info_image_img = document.querySelector('.product-info-image-img');
+        for(let i = 0; i < list_imgs.length; i++){
+            var img = document.querySelector('.img-side-item')
+            var img_item = document.createElement('img');
+            img_item.src = list_imgs[i];
+            img_item.classList.add('img-side-item-img');
+            img.appendChild(img_item);
+                   
+            img.onclick = function (e) {
+            product_info_image_img.src = e.target.src;
+            };
+        }
+
+        //Truyền dữ liệu qua /cart/add/
+        const addCart = document.querySelector('.product-info-detail-button-add');
+        const addBuy = document.querySelector('.product-info-detail-button-buy');
+        const id_product = document.querySelector('.product_info_id').textContent;
+        addCart.addEventListener('click', function () {
+            if (curr_size == undefined) {
+                alert('Vui lòng chọn kích thước');
+            }
+            else {
+                alert('Đã thêm vào giỏ hàng');
+                window.location.href = '/cart/add/' + id_product + '?size=' + curr_size + '&quantity=' + curr_quantity;
+            }
+        });
+
+        addBuy.addEventListener('click', function () {
+            if (curr_size == undefined) {
+                alert('Vui lòng chọn kích thước');
+            }
+            else {
+                addBuy.setAttribute('href', '/payment/' + id_product + '?size=' + curr_size + '&quantity=' + curr_quantity);
+            }
+        });
+
+
+        
+
+</script>

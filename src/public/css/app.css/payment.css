@@ -1,0 +1,474 @@
+.payment-container{
+    margin: 0 15px;
+    font-size: 2rem;
+}
+.payment h1, .payment h2{
+    font-size: 3rem;
+    margin-left: 3rem;
+}
+
+.payment-title {
+    margin: 2rem 0;
+    font-size: 3.5rem;
+    font-family: 'Kanit', sans-serif;
+}
+.title{
+    font-family: 'Kanit', sans-serif;
+    margin: 2rem 3rem;
+}
+/*list product*/
+.heading {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;   
+    margin: 5rem 0;;
+}
+.heading div {
+    display: inline-block;
+}
+.c0 {
+    width: 10%;
+}
+.c1 {
+    display: flex;
+    width: 30%;
+}
+.c2 {
+    width: 20%;
+}
+.c3 {
+    width: 20%;
+}
+.c4 {
+    width: 20%;
+}
+.list-product {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3.5rem;
+}
+.product_payment p {
+    font-size: 2rem;
+    line-height: 1;
+}
+.payment-container .product_payment{
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px groove;
+    align-items: center;
+}
+.payment-container .product_payment div div{
+    display: block;
+}
+.payment-container .product_payment div div p{
+    margin-left: 2rem;
+}
+
+.item-info {
+    font-size: 14px;
+    text-align: left;
+}
+/* Payment Information*/
+.payment-info-wrapper {
+    border-bottom: 1px groove;
+}
+.payment-info{
+    margin: 0 4rem;
+    display: flex;
+    width: 95%;
+    align-items: center;
+}
+.payment-info .info{
+    margin-left: 1rem;
+    width: 90%;
+    line-height: 1;
+}
+.payment-info .info p{
+    margin: 1rem 0;
+}
+.payment-info .change{
+    width: 10%;
+    margin-right: 3rem;
+    
+}
+/* Transport information*/
+.transport_wrap {
+    border-bottom: 1px groove;
+}
+.transport{
+    display: flex;
+    width: 95%;
+    align-items: center;
+    margin: 0 4rem;
+}
+.transport div {
+    display: block;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+.t1{
+    width: 20%;
+}
+.t2{
+    width: 30%;
+    text-align: center;
+}
+.t3{
+    width: 40%;
+}
+.t4{
+    width: 10%;
+    margin-right: 3rem;
+}
+.pred{
+    margin-top: 0.5rem;
+}
+.trans-comp{
+    color: var(--primary-color);
+}
+.btn-change, .btn-change1{
+    color: #ffff;
+    font-size: 2rem;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-change:hover, .btn-change1:hover{
+    opacity: 50% ;
+}
+.btn-change:active, .btn-change1:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.pred span{
+    font-size: 1.5rem;
+}
+
+/* Payment Method Selection */
+.payment-method {
+    width: 95%;
+    margin: 0 4rem;
+}
+.payment-method .payment-method-icon{
+    height: 40px;
+    width: 40px;
+    margin-left: 1.5rem;
+}
+.checkbox-group .methods-option{
+    display: flex;
+    align-items: center;
+}
+.payment-method input{
+    margin: 2rem 1rem;
+}
+.payment-method .icon{
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/* Summary */
+.total{
+    margin: 1.5rem 0;
+    display: inline;
+    font-size: 2.5rem;
+    flex-direction: column;
+
+}
+.total div{
+    margin-top: 2rem;
+    display: inline-block;
+}
+.a1{
+    width: 70%;
+    text-align: right;
+}
+.a2{
+    width: 29%;
+    text-align: right;
+}
+.sum {
+    color: var(--primary-color);
+    font-size: 3.5rem;
+    font-weight: bold;
+
+}
+#tt{
+    margin-top: 5rem;
+}
+/* Order button*/
+.btn-acpt{
+    color: #ffff;
+    background-color: var(--primary-color);
+    font-size: 2.5rem;
+    border-radius: 10px;
+    border: none;
+    padding: 13px 30px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.btn-acpt:hover {opacity: 50%}
+.btn-acpt:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.last{
+    margin-bottom: 5rem;
+}
+
+.back{
+    color: var(--primary-color);
+    text-decoration: underline;
+    margin-left: 5rem;
+}
+
+/*Modal for changing adress information*/
+.modal-info {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.info-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #888;
+    width: 50%;
+}
+.info-content h2 {
+    margin: 0 0 0.5rem;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+
+}
+.info-content form{
+    padding-left: 40px;
+}
+.info-content label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+.info-content input[type=text], .info-content input[type=email], .info-content input[type=tel] {
+    width: 90%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+.info-content .col-30 {
+    float: left;
+    width: 30%;
+    margin-top: 20px;
+}
+  
+.info-content .col-70 {
+    float: left;
+    width: 70%;
+    margin-top: 20px;
+}
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  /* The Close Button and Save Button*/
+.closeBtn{
+    width: 20%;
+    background-color: rgba(0,112,192,.4);
+    color: var(--primary-color);
+    float: right;
+    margin-top: 3%;
+    margin-right: 10%;
+}
+.saveBtn{
+    background-color: var(--primary-color);
+    color: white;
+    float: right;
+    width: 20%;
+    margin-top: 3%;
+    margin-right: 10%;
+}
+.info-content input[type=submit] {
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-content input.btn {
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 1.2rem;
+    cursor: pointer;
+}
+
+
+/*Modal for changing transport company*/
+.trans-info {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.trans-content {
+    background-color: #fefefe;
+    border-radius: 10px;
+    margin: 10% auto !important;
+    padding: 20px;
+    width: 35%;
+    display: flex !important;
+    flex-direction: column;
+    text-align: center;
+}
+.trans-content h2 {
+    margin: 0 0 0.5rem;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
+.trans-content .row input {
+    margin-top: 0.5rem;
+}
+.trans-content .opt {
+    width: 90%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.075);
+    margin: 10px 0 10px 20px;
+}
+.trans-content .row input + input{
+    margin-left: 2rem;
+}
+/* radio custom*/
+.trans-content input[type="radio"]{
+   appearance: none;
+   border: 1px solid #d3d3d3;
+   border-radius: 5px;
+   width: 30px;
+   height: 30px;
+   content: none;
+   outline: none;
+   margin: 15px;
+   float: right;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   background-color: var(--primary-color);
+   cursor: pointer;
+}
+
+.trans-content input[type="radio"]:checked {
+  appearance: none;
+  outline: none;
+  padding: 0;
+  content: none;
+  border: none;
+  cursor: pointer;
+}
+
+.trans-content input[type="radio"]:checked::before{
+  position: absolute;
+  color: white !important;
+  content: "\00A0\2713\00A0" !important;
+  font-weight: bolder;
+  font-size: 21px;
+  cursor: pointer;
+}
+.trans-content label{
+    position: relative;
+}
+.trans-content .label-pos {
+    padding-left: 5%;
+    top: 15px;
+}
+
+.trans-content #transMoney {
+    width: 20%;
+    float: right;
+    margin: 4%;
+    color: var(--primary-color)
+}
+
+.trans-content .transTime {
+    padding-left: 5%;
+    margin-top: 4%;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.544);
+}
+
+/* The Close Button */
+.closeTransBtn {
+    width: 20%;
+    float: right;
+    margin-top: 3%;
+    margin-right: 10%;
+}
+
+.saveTransBtn {
+    float: right;
+    width: 20%;
+    margin-top: 3%;
+    margin-right: 10%;
+}
+
+.cancelOrder {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    padding: 12px 30px;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.trans-content input[type=submit] {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    border: none;
+    border-radius: 1.2rem;
+    cursor: pointer;
+}
+.trans-content input[value="Lưu"]:hover, .info-content input[type=submit]:hover, .confirmOrder:hover, #orderConfirmed .row:hover {
+    opacity: 50%;
+}
+.info-content input[value="Hủy"]:hover, .trans-content .closeTransBtn:hover, .trans-content .cancelOrder:hover {
+    background-color: red;
+}
+
+.btn {
+    display: block;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 2rem;
+}

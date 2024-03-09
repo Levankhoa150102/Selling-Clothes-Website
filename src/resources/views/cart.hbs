@@ -1,0 +1,165 @@
+<div id="cart">
+            <div class="cart_items">
+                <div class="cart_list">
+                    <h4>GIỎ HÀNG </h4>
+                    <p class="number_of_product">({{product.length}}) sản phẩm</p>
+                    <div class="cart_noti"></div>
+                    <div class="cart_list_title">
+                        <table>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng tiền</th>
+                                <th></th>
+                            </tr>
+
+                            {{#each product}}
+                            <tr class="products_cart">
+                                <td>
+                                    <div class="cart_product_id" style="display: none;">{{this.id}}</div>
+                                    <div class="cart_list_item">
+                                        <img src="{{this.image}}" alt="item" class="cart_list_item_img">
+                                        <div class="cart_list_item_info">
+                                            <p class="cart_list_item_name">{{this.name}}</p>
+                                            <p class="cart_list_item_size">Size: {{this.size}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="product_price">{{this.price}}đ</td>
+                                <td>
+                                    <div class="cart_list_item_quantity">
+                                        <a href="/cart/update/{{this.id}}?action=minus" class="cart_list_item_quantity_minus_btn">-</a>
+                                        <p class="cart_list_item_quantity_input">{{this.quantity}}</p>
+                                        <a href="/cart/update/{{this.id}}?action=plus" class="cart_list_item_quantity_plus_btn">+</a>
+                                    </div>
+                                </td>
+                                <td class="product_total_price">{{this.totalprice}}đ</td>
+                                <td>
+                                    <a href="/cart/update/{{this.id}}?action=clear" class="delete_btn cart_list_item_delete"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                            
+                        </table>
+                    </div>
+                    <div class="clear_cart">
+                        <a href="/cart/update/{{product}}?action=remove">Xóa giỏ hàng</a>
+                    </div>
+                </div>
+
+        
+                <div class="cart_payment">
+                    <h4>THANH TOÁN</h4>
+                    <div class="payment_session">
+                        <p>Tổng đơn: {{total}}đ</p>
+                        <div class="payment_btn">
+                            <a href="/product">
+                                Tiếp tục mua hàng
+                            </a>
+                            <a href="/payment" class="cart_payment_btn">
+                                Thanh toán
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+</div>
+
+<script>
+    const numberOfProduct = document.querySelectorAll('table tr.products_cart');
+    const cart_noti = document.querySelector('.cart_noti');
+    const cart_list_title = document.querySelector('.cart_list_title');
+    const cart_list_item = document.querySelectorAll('.cart_list_title .products_cart');
+    const clear_cart_btn = document.querySelector('.clear_cart');
+
+    if(numberOfProduct.length == 0){   //Khi giỏ hàng trống thì ẩn
+        cart_list_title.style.display = "none";
+
+ //Hiện thông báo giỏ hàng trống
+        cart_noti.innerHTML = "Giỏ hàng trống";
+        clear_cart_btn.style.display = 'none';
+        cart_noti.style.height = "30rem";
+    }
+    else if(numberOfProduct.length == 1){
+        cart_list_title.style.height = "40rem";;
+    }
+
+    const plus_btn = document.querySelectorAll('.cart_list_item_quantity_plus_btn');
+    const minus_btn = document.querySelectorAll('.cart_list_item_quantity_minus_btn');
+    const quantity_input = document.querySelectorAll('.cart_list_item_quantity_input');
+
+    const product_price = document.querySelectorAll('.product_price');
+    const product_total_price = document.querySelectorAll('.product_total_price');
+    const total = document.querySelector('.payment_session p');
+
+    //Variable about product
+    const product_id = document.querySelectorAll('.cart_product_id');
+    const product_name = document.querySelectorAll('.cart_list_item_name');
+    const product_image = document.querySelectorAll('.cart_list_item_img');
+    const product_size = document.querySelectorAll('.cart_list_item_size');
+    // Add event listeners to plus and minus buttons
+    var total_price = 0;
+    var order_product = [];
+    product_total_price.forEach((price, index) => {
+        total_price += parseInt(price.innerHTML);   
+
+        order_product.push({
+            product_id: product_id[index].innerHTML,
+            product_name: product_name[index].innerHTML,
+            product_image: product_image[index].src,
+            product_size: (product_size[index].innerHTML).slice(-1),
+            product_price: parseInt((product_price[index].innerHTML).substring(0, product_price[index].innerHTML.length - 1)),
+            product_total_price: parseInt((product_total_price[index].innerHTML).substring(0, product_total_price[index].innerHTML.length - 1)),
+            quantity: parseInt(quantity_input[index].innerHTML),
+        });
+       
+    });
+    pass_total_price = total_price;
+        plus_btn.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                var volume = parseInt(quantity_input[index].innerHTML);
+                volume += 1;
+                quantity_input[index].innerHTML = volume;
+
+                product_total_price[index].innerHTML = parseInt(product_price[index].innerHTML) * volume + 'đ';
+                total_price += (parseInt(product_price[index].innerHTML));
+                
+                total.innerHTML = 'Tổng đơn: ' + total_price + 'đ';
+                
+                order_product[index].quantity = volume;
+                order_product[index].product_total_price = parseInt((product_total_price[index].innerHTML).substring(0, product_total_price[index].innerHTML.length - 1));
+                pass_total_price = total_price;
+
+
+            });
+        });
+
+        minus_btn.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                if(parseInt(quantity_input[index].innerHTML) == 1){
+                    return;
+                }
+                var volume = parseInt(quantity_input[index].innerHTML);
+                volume -= 1;
+                quantity_input[index].innerHTML = volume;
+
+                product_total_price[index].innerHTML = parseInt(product_price[index].innerHTML) * volume + 'đ';
+                total_price -= (parseInt(product_price[index].innerHTML));
+                
+                total.innerHTML = 'Tổng đơn: ' + total_price + 'đ';  
+
+                order_product[index].quantity = volume;
+                order_product[index].product_total_price = product_total_price[index].innerHTML;
+                pass_total_price = total_price;       
+            });
+        });
+
+        //how to save new data of {{product}} when we update quantity to local storage
+        const cart_payment_btn = document.querySelector('.cart_payment_btn');
+        cart_payment_btn.addEventListener('click', () => {
+            window.location.href = '/payment/' + '?order_product=' + JSON.stringify(order_product) + '&total_price=' + pass_total_price;
+        });
+</script>
